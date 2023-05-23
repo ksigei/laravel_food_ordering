@@ -15,7 +15,7 @@ class Menu extends Model
         'price',
     ];
 
-    // Define the relationships with other models
+    // Relationships
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);

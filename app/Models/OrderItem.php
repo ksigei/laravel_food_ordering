@@ -15,7 +15,7 @@ class OrderItem extends Model
         'price',
     ];
 
-    // Define the relationships with other models
+    // relationships
     public function order()
     {
         return $this->belongsTo(Order::class);

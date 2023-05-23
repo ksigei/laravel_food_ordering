@@ -14,7 +14,7 @@ class Restaurant extends Model
         'phone_number',
     ];
 
-    // Define the relationships with other models
+    // relationships
     public function menus()
     {
         return $this->hasMany(Menu::class);

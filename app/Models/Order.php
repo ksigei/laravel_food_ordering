@@ -15,7 +15,7 @@ class Order extends Model
         'date',
     ];
 
-    // Define the relationships with other models
+    // relationships
     public function user()
     {
         return $this->belongsTo(User::class);
