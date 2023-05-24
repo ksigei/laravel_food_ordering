@@ -15,16 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\OrderItemController;
 
 Route::get('/', [MenuController::class, 'index']);
-// Route::get('/', 'MenuController@index');
-Route::get('/menus/{menu}', [MenuController::class, 'show']);
+
+// resource for menus
+Route::resource('menus', MenuController::class);
 
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::post('/orders', [OrderController::class, 'store']);
+// Restaurant routes
+Route::resource('restaurants', RestaurantController::class);
 
-Auth::routes();
+// OrderItem routes
+Route::resource('order-items', OrderItemController::class);
+// Route::get('/order-items/create/{order_id}', 'OrderItemController@create')->name('order-items.create');
+// Route::post('/order-items', 'OrderItemController@store')->name('order-items.store');
 
 Auth::routes();
 

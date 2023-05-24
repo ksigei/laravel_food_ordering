@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItem;
+
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -40,14 +42,15 @@ class OrderController extends Controller
         $order->save();
 
         // A new order item
-        $orderItem = new OrderItem();
-        $orderItem->order_id = $order->id;
-        $orderItem->menu_id = $request->menu_id;
-        $orderItem->quantity = $request->quantity;
-        $orderItem->price = $request->price;
-        $orderItem->save();
+        // $orderItem = new OrderItem();
+        // $orderItem->order_id = $order->id;
+        // $orderItem->menu_id = $request->menu_id;
+        // $orderItem->quantity = $request->quantity;
+        // $orderItem->price = $request->price;
+        // $orderItem->save();
 
-        return redirect('/orders');
+        // return redirect('/orders');
+        return redirect('/order-items/create?order_id=' . $order->id);
     }
 }
 
