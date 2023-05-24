@@ -18,9 +18,14 @@ use App\Http\Controllers\OrderController;
 
 Route::get('/', [MenuController::class, 'index']);
 // Route::get('/', 'MenuController@index');
-
 Route::get('/menus/{menu}', [MenuController::class, 'show']);
 
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::post('/orders', [OrderController::class, 'store']);
+
+Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

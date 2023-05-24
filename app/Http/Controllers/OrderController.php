@@ -23,9 +23,12 @@ class OrderController extends Controller
     {
         // Validate data
         $request->validate([
-            'user_name' => 'required',
-            'menu_id' => 'required',
-            'quantity' => 'required|integer|min:1',
+            'user_id' => 'required',
+            'restaurant_id' => 'required',
+            // 'menu_id' => 'required',
+            // 'quantity' => 'required',
+            // 'price' => 'required',
+            // 'date' => 'required',
         ]);
 
         // A new order

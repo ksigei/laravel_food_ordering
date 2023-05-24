@@ -5,9 +5,10 @@
 
     <form action="/orders" method="POST">
         @csrf
-        <label for="customer_name">Customer Name</label>
-        <input type="text" name="customer_name" id="customer_name">
+        <label for="user_id">User</label>
+        <input type="text" name="user_id" id="user_id">
         <br>
+        <label for="restaurant_id">Restaurant</label>
         <button type="submit">Place Order</button>
     </form>
 @endsection
