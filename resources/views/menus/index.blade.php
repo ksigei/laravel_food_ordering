@@ -16,7 +16,8 @@
                    <div colspan="3">
                         @foreach ($menus as $menu)
                     <tr>
-                        <td><h2><a href="{{ route('menus.show', ['id' => $menu->id]) }}">{{ $menu->name }}</a></h2></td>
+                        <td><h2><a href="/orders/create?menu_id={{ $menu->id }}" class="btn btn-primary">Order</a>
+                        </h2></td>
                         <td>{{ $menu->price }}</td>
                         <td>{{ $menu->restaurant->name }}</td>
                     </tr>

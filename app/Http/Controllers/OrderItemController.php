@@ -22,6 +22,20 @@ class OrderItemController extends Controller
 
 
     // create
+    // public function create(Request $request)
+    // {
+    //     // Retrieve the order id from the request
+    //     $orderId = $request->order_id;
+
+    //     // Retrieve all menus
+    //     $menus = Menu::all();
+
+    //     // Return the view to create an order item
+    //     return view('order_items.create', compact('orderId', 'menus'));
+    // }
+    // Controller code
+  // Controller code
+
     public function create(Request $request)
     {
         // Retrieve the order id from the request
@@ -33,6 +47,8 @@ class OrderItemController extends Controller
         // Return the view to create an order item
         return view('order_items.create', compact('orderId', 'menus'));
     }
+
+
     // store
     public function store(Request $request)
     {

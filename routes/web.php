@@ -23,13 +23,12 @@ Route::get('/', [MenuController::class, 'index']);
 
 // resource for menus
 Route::resource('menus', MenuController::class);
-Route::get('/menus/{id}', 'MenuController@show')->name('menus.show');
-Route::get('/menus/create/{restaurant_id}', 'MenuController@create')->name('menus.create');
 Route::get('/menus/{restaurant_id}', [MenuController::class, 'index']);
-
+// Route::get('/menus/{id}', 'MenuController@show')->name('menus.show');
+Route::get('/menus/create/{restaurant_id}', [MenuController::class, 'create']);
 Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/orders/create', 'OrderController@create')->name('orders.create');
 Route::get('/orders/create', [OrderController::class, 'create']);
-// Route::get('/orders/create', 'OrderController@create')->name('orders.create');
 
 Route::post('/orders', [OrderController::class, 'store']);
 // Restaurant routes
@@ -38,8 +37,8 @@ Route::get('/restaurants/{id}', 'RestaurantController@show')->name('restaurants.
 
 // OrderItem routes
 Route::resource('order-items', OrderItemController::class);
-Route::get('/order-items/create/{order_id}', 'OrderItemController@create')->name('order-items.create');
-Route::post('/order-items', 'OrderItemController@store')->name('order-items.store');
+// Route::get('/order-items/create/{order_id}', 'OrderItemController@create')->name('order-items.create');
+// Route::post('/order-items', 'OrderItemController@store')->name('order-items.store');
 
 Auth::routes();
 
