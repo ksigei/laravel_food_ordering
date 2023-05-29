@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Order;
+use App\Models\OrderItem;
+
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller

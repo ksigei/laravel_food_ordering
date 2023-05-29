@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrderItem;
+use App\Models\Order;
+use App\Models\Restaurant;
+use App\Models\Menu;
+
 use Illuminate\Http\Request;
 
 class OrderItemController extends Controller
@@ -15,15 +19,20 @@ class OrderItemController extends Controller
         // Return the view with the order items data
         return view('order_items.index', compact('orderItems'));
     }
-    
+
 
     // create
-    public function create()
+    public function create(Request $request)
     {
-        // Return the view to create an order item
-        return view('order_items.create');
-    }
+        // Retrieve the order id from the request
+        $orderId = $request->order_id;
 
+        // Retrieve all menus
+        $menus = Menu::all();
+
+        // Return the view to create an order item
+        return view('order_items.create', compact('orderId', 'menus'));
+    }
     // store
     public function store(Request $request)
     {

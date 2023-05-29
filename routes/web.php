@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\OrderController;
+
 
 Route::get('/', [MenuController::class, 'index']);
 
@@ -37,8 +38,8 @@ Route::get('/restaurants/{id}', 'RestaurantController@show')->name('restaurants.
 
 // OrderItem routes
 Route::resource('order-items', OrderItemController::class);
-// Route::get('/order-items/create/{order_id}', 'OrderItemController@create')->name('order-items.create');
-// Route::post('/order-items', 'OrderItemController@store')->name('order-items.store');
+Route::get('/order-items/create/{order_id}', 'OrderItemController@create')->name('order-items.create');
+Route::post('/order-items', 'OrderItemController@store')->name('order-items.store');
 
 Auth::routes();
 
