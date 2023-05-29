@@ -13,13 +13,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($menus as $menu)
+                   <div colspan="3">
+                        @foreach ($menus as $menu)
                     <tr>
-                        <td>{{ $menu->name }}</td>
+                        <td><h2><a href="{{ route('menus.show', ['id' => $menu->id]) }}">{{ $menu->name }}</a></h2></td>
                         <td>{{ $menu->price }}</td>
                         <td>{{ $menu->restaurant->name }}</td>
                     </tr>
-                @endforeach
+                        @endforeach
+                    <div colspan="3">
+                            <a href="{{ route('menus.create', ['restaurant_id' => $menu->restaurant->id]) }}" class="btn btn-primary">New Menu</a>
+                    </div>
             </tbody>
         </table>
     </div>

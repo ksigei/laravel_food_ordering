@@ -22,12 +22,16 @@ Route::get('/', [MenuController::class, 'index']);
 
 // resource for menus
 Route::resource('menus', MenuController::class);
+Route::get('/menus/{id}', 'MenuController@show')->name('menus.show');
+Route::get('/menus/create/{restaurant_id}', 'MenuController@create')->name('menus.create');
+Route::get('/menus/{restaurant_id}', [MenuController::class, 'index']);
 
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::post('/orders', [OrderController::class, 'store']);
 // Restaurant routes
 Route::resource('restaurants', RestaurantController::class);
+Route::get('/restaurants/{id}', 'RestaurantController@show')->name('restaurants.show');
 
 // OrderItem routes
 Route::resource('order-items', OrderItemController::class);

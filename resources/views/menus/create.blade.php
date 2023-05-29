@@ -22,8 +22,9 @@
             </div>
             <div class="form-group">
                 <label for="restaurant_id">Restaurant ID:</label>
-                <input type="text" class="form-control" name="restaurant_id" id="restaurant_id">
+                <input type="text" class="form-control" name="restaurant_id" id="restaurant_id" value="">
             </div>
+
 
             <button type="submit" class="btn btn-primary">Create Menu</button>
         </form>

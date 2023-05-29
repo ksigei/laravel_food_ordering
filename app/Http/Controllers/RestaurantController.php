@@ -54,9 +54,14 @@ class RestaurantController extends Controller
 
     // shoew
 
-    public function show(Restaurant $restaurant)
+    // public function show(Restaurant $restaurant)
+    // {
+    //     // Return the view with the restaurant data
+    //     return view('restaurants.show', compact('restaurant'));
+    // }
+    public function show($id)
     {
-        // Return the view with the restaurant data
+        $restaurant = Restaurant::findOrFail($id);
         return view('restaurants.show', compact('restaurant'));
     }
 

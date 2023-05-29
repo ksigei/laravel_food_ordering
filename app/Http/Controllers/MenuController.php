@@ -67,4 +67,11 @@ class MenuController extends Controller
 
         return redirect('/menus')->with('success', 'Menu item deleted successfully');
     }
+
+        public function show($id)
+    {
+        $menu = Menu::findOrFail($id);
+        return view('menus.show', ['menu' => $menu]);
+    }
+
 }
