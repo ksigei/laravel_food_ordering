@@ -23,6 +23,8 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
+    
+
     public function store(Request $request)
     {
         // Validate data

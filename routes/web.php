@@ -27,8 +27,8 @@ Route::get('/menus/create/{restaurant_id}', 'MenuController@create')->name('menu
 Route::get('/menus/{restaurant_id}', [MenuController::class, 'index']);
 
 Route::get('/orders', [OrderController::class, 'index']);
-// Route::get('/orders/create', [OrderController::class, 'create']);
-Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+Route::get('/orders/create', [OrderController::class, 'create']);
+// Route::get('/orders/create', 'OrderController@create')->name('orders.create');
 
 Route::post('/orders', [OrderController::class, 'store']);
 // Restaurant routes
