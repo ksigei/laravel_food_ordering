@@ -20,8 +20,11 @@ class OrderController extends Controller
 
     public function create()
     {
-        return view('orders.create');
+        $restaurants = Restaurant::all();
+
+        return view('orders.create', compact('restaurants'));
     }
+
 
 
 

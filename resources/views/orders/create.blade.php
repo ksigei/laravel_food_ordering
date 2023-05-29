@@ -5,11 +5,14 @@
 
     <form action="/orders" method="POST">
         @csrf
-        <label for="user_id">User</label>
-        <input type="text" name="user_id" id="user_id">
+        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
         <br>
         <label for="restaurant_id">Restaurant</label>
-        <input type="text" name="restaurant_id" id="restaurant_id">
+        <select name="restaurant_id" id="restaurant_id">
+            @foreach ($restaurants as $restaurant)
+                <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+            @endforeach
+        </select>
         <br>
         <label for="date">Date</label>
         <input type="date" name="date" id="date">
