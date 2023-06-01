@@ -23,7 +23,13 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // store
+        $menu = new Menu();
+        $menu->name = $request->name;
+        $menu->price = $request->price;
+        $menu->save();
+        return response()->json($menu);
+
     }
 
     /**
@@ -31,7 +37,10 @@ class MenuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //show
+        $menu = Menu::find($id);
+        return response()->json($menu);
+
     }
 
     /**
@@ -39,7 +48,14 @@ class MenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // update
+        $menu = Menu::find($id);
+        $menu->name = $request->name;
+        $menu->price = $request->price;
+        $menu->save();
+        return response()->json($menu);
+
+
     }
 
     /**
@@ -47,6 +63,10 @@ class MenuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete
+        $menu = Menu::find($id);
+        $menu->delete();
+        return response()->json($menu);
+
     }
 }

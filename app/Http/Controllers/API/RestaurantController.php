@@ -24,7 +24,11 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  store restaurant
+        $restaurant = new Restaurant();
+        $restaurant->name = $request->name;
+        $restaurant->save();
+        return response()->json($restaurant);
     }
 
     /**
@@ -32,7 +36,9 @@ class RestaurantController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // show
+        $restaurant = Restaurant::find($id);
+        return response()->json($restaurant);
     }
 
     /**
@@ -40,7 +46,11 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // update
+        $restaurant = Restaurant::find($id);
+        $restaurant->name = $request->name;
+        $restaurant->save();
+        return response()->json($restaurant);
     }
 
     /**
@@ -48,6 +58,10 @@ class RestaurantController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // destroy
+        $restaurant = Restaurant::find($id);
+        $restaurant->delete();
+        return response()->json($restaurant);
+        
     }
 }

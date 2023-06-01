@@ -37,7 +37,9 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // show
+        $order = Order::find($id);
+        return response()->json($order);
     }
 
     /**
@@ -45,7 +47,12 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // update
+        $order = Order::find($id);
+        $order->user_id = $request->user_id;
+        $order->restaurant_id = $request->restaurant_id;
+        $order->save();
+        return response()->json($order);
     }
 
     /**
@@ -53,6 +60,10 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete
+        $order = Order::find($id);
+        $order->delete();
+        return response()->json($order);
+
     }
 }
